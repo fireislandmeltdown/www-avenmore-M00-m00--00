@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  
+    <meta charset="utf-8" />
+    
+    <title>Avenmore | IP and Managed IT Services.</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="description" content="IP and Managed IT Services." />
+    
+    <meta content="Tyler McGill" name="author" />
+    
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Raleway:400,600,900" rel="stylesheet">
+    
+    <style>
+    
+      /* context */
+      
+      html, body {
+        margin: 0;
+        min-height: 100vh;
+        width: 100vw; }
+      
+      /* viruses */
+      
+      .brandnamerecognition {
+        font-family: 'Raleway', sans-serif;
+        font-size: 32px;
+        font-weight: 600; }
+
+      .brandnametagline {
+        font-family: 'Caveat', cursive;
+        font-size: 32px;
+        font-weight: 400; }
+
+      .crayola {
+        display:block;
+        width: 640px; }
+      
+      .easya {
+        font-family: 'Raleway';
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%; }
+        
+      .off {
+        display: none; }
+        
+      .signalfire {
+        position: absolute;
+        background-color: transparent;
+        background-image: url(assets/images/antenna.png);
+        background-position: left bottom; 
+        background-repeat: no-repeat;
+        color: black;
+        font-family: 'Caveat', cursive;
+        font-size: 22px;
+        font-weight: 400;
+        height: 50px;
+        left: 30px;
+        padding-left: 60px;
+        text-align: left;
+        top:-40px;
+        width: 100px; }
+      
+      .weapon {
+        background-color: black;
+        color: white;
+        display: inline-block;
+        font-family: 'Raleway', sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        padding: 5px 15px;
+        position: relative;
+        margin-right: 5px;
+        margin-bottom: 8px;
+        text-decoration: none; }
+      
+      a.weapon:hover, .weapon.lock {
+        background-color: white;
+        color: black; }
+      
+      /* container */
+        
+      .chooseaweapon {
+        position: absolute;
+        text-align: center;
+        top: 80vh;
+        width: 100vw; }
+      
+      .fortyfourclub {
+        background-color: black;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        padding: 50px; }
+        
+      .learnnode {
+        align-items: center;
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        margin-bottom: 50px;
+        width: 100vw; }
+      
+      .learnnode h1 {
+        text-align: center;
+        width: 100%; }
+        
+      .target {
+        display: none; }
+      
+      .target .dayserum {
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+        min-height: 300px; }
+        
+      .target .dayserum .rhapsody {
+        margin: 0 auto 0 auto;
+        max-width: 1000px;
+        min-width: 350px; }
+        
+      .target .dayserum .rhapsody .hook {
+        align-items: center;
+        display:flex;
+        height: 300px;
+        float:left;
+        margin-left:25px;
+        margin-right:25px;
+        width: 300px; }
+      
+      .target a.weapon {
+        display: block; }
+      
+      .target h1.weapon {
+        display: block;
+        font-size: 30px;
+        margin: 0 auto;
+        max-width: 950px; }
+        
+      .target .nightserum {
+        padding: 8px 0;
+        max-width: 1000px;
+        min-width: 350px;
+        margin: 0 auto 105px auto; }
+        
+      .target .nightserum .threecolumns .easya {
+        margin-top: 12px; }
+      
+      .target .hidinginplainsight {
+        margin: 0 0 0 25px;
+        width: 300px; }
+      
+      .target .hidinginplainsight a.less,
+      .target .hidinginplainsight div.weapon {
+        display: none; }
+        
+      .target .hidinginplainsight .easya {
+        display: none; }
+        
+      .target .nothingelsetoknow {
+        margin: 0 0 0 25px;
+        width: 300px; }
+      
+      .target .nothingelsetoknow a.less,
+      .target .nothingelsetoknow a.more {
+        display: none; }
+      
+      .target .threecolumns {
+        -webkit-column-count: auto;
+        -moz-column-count: auto;
+        column-count: auto;
+        
+        -webkit-column-gap: 25px;
+        -moz-column-gap: 25px;
+        column-gap: 25px;
+        
+        -webkit-column-width: 300px;
+        -moz-column-width: 300px;
+        column-width: 300px;
+        
+        min-height: 200px;
+        margin: 0 20px 0 25px; }
+        
+      .target .threecolumns a.more,
+      .target .threecolumns div.weapon {
+        display: none; }
+      
+      
+      /* switches */      
+      
+      body.firing .chooseaweapon {
+        position: static;
+        margin-bottom: 20vh;
+        margin-top: 20vh; }
+        
+      body.firing .learnnode {
+        display: none; }
+        
+      body.firing .target.lock {
+        display: block; }
+      
+      @media screen and ( max-height: 300px ) {
+        
+        body.firing .chooseaweapon {
+          position: static;
+          margin-bottom: 60px;
+          margin-top: 60px; }
+          
+      }
+      
+      @media screen and ( max-width: 725px ) {
+        
+        .signalfire {
+          display: none; }
+          
+      }
+      
+      @media screen and ( max-width: 999px ) {
+        
+        .crayola {
+          display: none; }
+          
+      }
+      
+      @media screen and ( max-width: 1050px ) {
+        
+        .fortyfourclub .brandnametagline {
+          display: none; }
+          
+      }
+      
+    </style>
+    
+  </head>
+    
+  <body>
+
+    <div class="learnnode">
+    
+      <h1>
+        
+        <span class="brandnamerecognition">Avenmore</span>
+        
+        <br/>
+        
+        <span class="brandnametagline">IP and Managed IT Services.</span>
+        
+      </h1>
+    
+    </div>
+    
+    <div class="chooseaweapon">
+      
+      <a class="weapon" href="#big-data">01 BIG DATA</a>
+      
+      <a class="weapon" href="#ux-design">02 UX DESIGN</a>
+      
+      <a class="weapon" href="#node-js">03 NODE.JS</a>
+      
+      <a class="weapon" href="#visualization">04 VISUALIZATION</a>
+      
+    </div>
+    
+    <div id="big-data" class="target">
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">QBASE TRUE INFINITE NUMBER SUPPORT</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Stepping into the realm of science fiction is the reality of discrete integers streching well past the concept of infinity and the algorithmic limits of published numerical methods.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-large-numbers.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">HUSH MAP DATA REPRESENTATION</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">A trade secret method invented to optomize JSON that delivers up to 40 times its translation speed between text and a JS object.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-hush-map.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+            
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">NON-BLOCKING ATOMIC INTERACTIONS</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">String together a set of read or write interactions that must all complete as one ( atomicly linked ) or fail politely while letting normal database traffic continue.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-atomic-transactions.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">UNSTRUCTURED DATA SUPPORT</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Easily store data without tables or redefining your database schema.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-unstructured-data.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">OPERATIONAL DATA REPLICATION AND BACKUP</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Enjoy the calm of data replication without the stress of operational interruption or downtime.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-data-replication.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">SIMPLE API</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">A simple api built for programmers and data analysts that gets straight to the point.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-simple-api.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+    </div>
+    
+    <div id="ux-design" class="target">
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">ERGONOMIC DESIGN PATTERNS</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Responsive adaptions to human intelligence, education, social placement and physical characteristics to deliver a seamless standard of service to all users.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-ergo-design.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">REPETITIVE STRAIN MINIMIZATION</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Action frequency analysis and user response impact assessment guided interface design and iteration.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-repetitive-strain.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">INTERRUPTION FRIENDLY PROCESS FLOW</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Flow design that embraces the need for washroom breaks and the occasional irate customer that will not be ignored.</span>
+
+            </div>
+
+            <img class="crayola" src="./assets/images/foyer-flag-interruption-friendly.png" />
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">CONTEXT DRIVEN INTERFACING</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Keeping military tank interfaces safe from kindergarten Speak and Spell by systematic research into the appropriate choices for the intended audience.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      
+    </div>
+    
+    <div id="node-js" class="target">
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">ROBUST AND STABLE CODE BASE</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+.
+              <span class="easya">The Node.js project follows a Consensus Seeking decision making model with an open code base and proven reliablity</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">NATIVE ASYNCHRONOUS ARCHITECTURE</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon" href="#">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">PLATFORM INDEPENDENT APPLICATIONS</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">A major strength of Node.js is great cross-platform support. With a little effort you can make sure your code will run on Windows, Linux and OSX.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+    </div>
+    
+    <div id="visualization" class="target">
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">LARGE NUMBER TRANSLATION</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Making large numbers comprehensible to ordinary people without exposure to the math they hide in.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">INDUSTRIAL ILLUSTRATION</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Purpose driven art and illustration designed to avoid information overload and simplify process comprehension and navigation.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">RELATIONSHIP DIAGRAMS</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Highlighting the connections that are often overlooked, invisible or confused.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class="drunkelephant">
+      
+        <h1 class="weapon">INSIGHT GRAPHS</h1>
+
+        <div class="dayserum">
+
+          <div class="rhapsody">
+
+            <div class="hook">
+
+              <span class="easya">Tools to seperate the insight from the data.  Often used to support effective decision making or to double-check third party conclusions.</span>
+
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+        <div class="nightserum">
+
+          <div class="nothingelsetoknow">
+            
+            <a class="weapon less" href="#">READ LESS.</a>
+            
+            <a class="weapon more" href="#">READ MORE.</a>
+            
+            <div class="weapon">NOTHING ELSE TO KNOW.</div>
+
+          </div>
+
+        </div>
+      
+      </div>
+      
+      
+    </div>
+    
+    <div class="fortyfourclub">
+    
+      <a class="weapon" href="mailto:411@avenmore.com">DO EMAIL US.</a><span class="brandnametagline">( especially if your name is tim cook or bill gates )</span><br>
+      
+      <a class="weapon" href="mailto:911@avenmore.com">DO REQUEST SUPPORT.</a><span class="brandnametagline">( its built for us and people we care about )</span><br>
+      
+      <a class="weapon" href="https://goo.gl/maps/So6fXQGADwH2">DOn't ASK WHERE WE WORK.</a><span class="brandnametagline">( it's a secret )</span><br>
+      
+      <a class="weapon" href="https://en.wikipedia.org/wiki/Copyright">DOn't INFRINGE OUR IP.</a><span class="brandnametagline">( or we will delete your fortnite account )</span><br>
+      
+      <a class="weapon" href="https://en.wikipedia.org/wiki/Allergy">WE'RE ALLERGIC.</a><span class="brandnametagline">( to nightmares, stress and 401k's )</span><br>
+      
+      <a class="weapon" href="https://www.merriam-webster.com/dictionary/available">WE'RE AVAILABLE.</a><span class="brandnametagline">( for clients, contracts and investments )</span><br>
+      
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+    <script>
+      
+      $ ( document ).ready ( function ( ) {
+      
+        $ ( ".chooseaweapon a.weapon" ).on ( "click", function ( e ) {
+
+          $( this ).toggleClass ( "lock" );
+
+          $( this ).siblings ( ).removeClass ( "lock" );
+
+          $( ".target" ).removeClass ( "lock" );
+
+          if ( $( this ).hasClass ( "lock" ) === true ) {
+
+            $( "body" ).addClass ( "firing" );
+
+            $( "#" + $( this ).attr ( "href" ).slice ( 1 ) + ".target" ).addClass ( "lock" );
+
+          }
+
+          else if ( true ) {
+
+            $( "body" ).removeClass ( "firing" );
+
+          }
+          
+          $( window ).scrollTop ( 0 );
+          
+          return false;
+
+        });
+        
+        $ ( ".nightserum a.weapon.less" ).on ( "click", function ( e ) {
+          
+          $ ( this ).parent ( ).removeClass ( "threecolumns" );
+          
+          $ ( this ).parent ( ).addClass ( "hidinginplainsight" );
+          
+          return false;
+          
+        });
+        
+        $ ( ".nightserum a.weapon.more" ).on ( "click", function ( e ) {
+          
+          $ ( this ).parent ( ).removeClass ( "hidinginplainsight" );
+          
+          $ ( this ).parent ( ).addClass ( "threecolumns" );
+          
+          return false;
+          
+        });
+        
+      });
+      
+      console.log ( "> Hey.  If you're sneaking around under my hood I have a suspicion you're up to no good.  Go away :)" );
+      
+      setTimeout ( () => { console.log ( "> Yes that means you ..." ); }, 100000 );
+      
+      setTimeout ( () => { console.log ( "> Alright, I've called the cops ... prepare for imminent abduction." ); }, 1000000 );
+      
+    </script>
+  
+  </body>
+  
+</html>
