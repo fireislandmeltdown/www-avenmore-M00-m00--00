@@ -918,8 +918,34 @@
 
     <script>
       
-      $ ( document ).ready ( function ( ) {
+      function backnode ( ) {
+        
+        var chooseaweapon, learnnode, drop;
+        
+        chooseaweapon = $ ( ".chooseaweapon" );
+        
+        learnnode = $ ( ".learnnode" );
+        
+        drop = learnnode.height ( ) - chooseaweapon.offset ( ).top - chooseaweapon.height ( );
+        
+        if ( drop < 0 ) {
+          
+          learnnode.css ( "margin-bottom", 50 - drop + "px" );
+          
+        }
+        
+        else if ( true ) {
+          
+          learnnode.css ( "margin-bottom", "50px" );
+          
+        }
+        
+      }
       
+      $ ( document ).ready ( function ( ) {
+        
+        backnode ( );
+        
         $ ( ".chooseaweapon a.weapon" ).on ( "click", function ( e ) {
 
           $( this ).toggleClass ( "lock" );
@@ -969,6 +995,8 @@
         });
         
       });
+      
+      $ ( window ).on ( "resize", backnode );
       
       console.log ( "> Hey.  If you're sneaking around under my hood I have a suspicion you're up to no good.  Go away :)" );
       
